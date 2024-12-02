@@ -8,41 +8,28 @@
   color: #A2580E;
   text-align: center;
   margin: 3px 3px 3px 3px;
-  padding: 8px;
+}
+
+ /* title Steps to be a chef : */
+.steps {
+  font-family: "Chocolate Classical Sans", sans-serif;;
+  color: #A2580E;
+  text-align: center;
+  background-color: #e9e373;
+  border-radius: 100px;
+  margin: 10px 10px 5px 10px;
 }
 
 /* div image recete, ingredients, minutes et difficulté*/
 .card-show-image-ingredients {
   display: flex;
   justify-content: space-evenly;
-  align-items: flex-start;
-  padding-bottom: 8px;
-  padding-top: 6px;
 }
 
 /* photo de la recette*/
 .show-recipe-photo {
   border-radius: 10px;
-  margin: 5px 3px 0px 3px;
-}
-
-/* heart pour ajouter a favoris*/
-.heart-card-show {
-  text-shadow: 1.5px 0 0 white, 1.5px 1.5px 0 white, 0 1.5px 0 white, -1.5px 1.5px 0 white, -1.5px 0 0 white, -1.5px -1.5px 0 white, 0 -1.5px 0 white, 1.5px -1.5px 0 white;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-}
-
-.recipe-photo-container {
-  position: relative;
-}
-
-.details-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  margin: 5px 3px 3px 3px;
 }
 
 .icons-show-recipe {
@@ -51,7 +38,6 @@
   justify-content: space-between;
   margin-top: 5px;
   margin-inline: 5px;
-  margin-left: 0;
 }
 
 .chef-toque-icon {
@@ -62,7 +48,7 @@
 .montre-icon {
   width: 20px !important;
   height: auto !important;
-  margin-left: 2px !important;
+  margin-left: 5px !important;
 }
 
 /* title ingredients*/
@@ -77,40 +63,21 @@
 }
 
 .list-ingredients-show {
-  margin-left: 0;
-}
-
- /* title Steps to be a chef : */
-.steps {
-  font-family: "Chocolate Classical Sans", sans-serif;;
-  color: #A2580E;
-  text-align: center;
-  background-color: #f5f5f5;
-  margin: 10px 10px 10px 10px;
-  height: 35px;
-  padding-top: 5px;
-  padding-bottom: 8px;
-
-}
-
-.step-item {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin-left: 2px;
 }
 
 /* message de congratulations*/
 .message-congratulations {
   display: flex;
-  background-color: #dcf57aaf;
+  background-color: #DCF57A;
+  border-radius: 100px;
   height: 70px;
   align-items: center;
   justify-content: center;
-  text-align: center;
 }
 
 .message-congratulations h3 {
   font-family: "Quando", serif;
   font-size: 1.1rem;
   color: #874605;
-  margin: 3px 0px 3px 0px;
 }

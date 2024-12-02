@@ -2,62 +2,40 @@
   <h1 class="title-pages"><%= @recipe.title.capitalize%></h1>
 
   <div class="card-show-image-ingredients">
-    <div class="recipe-photo-container">
-      <% if @recipe.photo.key.nil? %>
-        <%= image_tag("repas.png", width: 200, height: 277, class:"show-recipe-photo object-fit-cover") %>
-      <% else %>
-        <%= cl_image_tag(@recipe.photo.key, width: 200, height: 277, crop: :fill, gravity: :face, class:"show-recipe-photo") %>
-      <% end %>
-      <div class="heart-card-show" data-controller="favourite">
-        <% if @recipe.favourite %>
-          <%= link_to remove_favorite_recipe_path(@recipe), class: "favheart",data: {turbo_method: :patch} do%>
-            <i class="fa-solid fa-heart" style="color: #ef0b39;"></i>
-          <% end %>
-        <% else %>
-          <%= link_to add_favorite_recipe_path(@recipe), class: "favheart",data: {turbo_method: :patch} do%>
-            <i class="fa-solid fa-heart" style="color: black;"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="details-container">
+    <% if @recipe.photo.key.nil? %>
+      <%= image_tag("repas.png", width: 186, height: 277, class:"show-recipe-photo object-fit-cover") %>
+    <% else %>
+      <%= cl_image_tag(@recipe.photo.key, width: 186, height: 277, crop: :fill, gravity: :face, class:"show-recipe-photo") %>
+    <% end %>
+    <div>
       <div class="icons-show-recipe">
         <div class="icons-show">
           <p><img src="<%= asset_path('montre.png') %>" alt="montre" class="montre-icon">   <%= @recipe.cooking_time.delete('^0-9') %>'</p>
-        </div>
-        <div class="icons-show">
-          <p>
-            <% @recipe.difficulty.times do %>
-              <img src="<%= asset_path('toque.png') %>" alt="Chef Hat" class="chef-toque-icon">
+          </div>
+          <div class="icons-show">
+            <p><% @recipe.difficulty.times do %>
+            <img src="<%= asset_path('toque.png') %>" alt="Chef Hat" class="chef-toque-icon">
             <% end %>
-          </p>
-        </div>
+            </p>
+          </div>
       </div>
 
       <div class="card-ingredients-show">
         <h3 >Ingredients:</h3>
-        <ul class="list-unstyled poppins">
-          <% @recipe.ingredient_list.split(',').each do |ingredient| %>
-            <div class="list-ingredients-show">
+            <ul class="list-unstyled poppins"> <% @recipe.ingredient_list.split(',').each do |ingredient| %>
+          <div class="list-ingredients-show">
               <li><%= ingredient.strip.capitalize %></li>
-            </div>
-          <% end %>
-        </ul>
+          </div>
+              <% end %>
+            </ul>
       </div>
     </div>
   </div>
 
-  <div class="steps-div">
-    <div>
-      <h3 class="steps">Steps to be a chef :</h3>
-    </div>
-  </div>
+  <h3 class="steps">Steps to be a chef :</h3>
 
   <ul class="list-unstyled poppins"> <% @recipe.content.split('%%').each_with_index do |step, index| %>
-    <li class="ms-3 step-item"><strong style="font-size: 23px">Step <%= index + 1 %>:</strong> <br> <%= step.split(':').drop(1).join(':') %>
-    </li>
-    <% end %>
+    <li class="ms-3"><strong>Step <%= index + 1 %>:</strong> <br> <%= step.split(':').drop(1).join(':') %></li> <% end %>
   </ul>
 
   <div class="message-congratulations">
